@@ -1,0 +1,12 @@
+{
+  "name": "BOID-model",
+  "version": "1.0.0",
+  "main": "dist/typescript/index.js",
+  "types": "dist/typescript/index.d.ts",
+  "repository": "git@github.com:BOID-Smart-Assistent/BOID-model.git",
+  "author": "Fabio Dijkshoorn <fabio@uu.nl>",
+  "license": "MIT",
+  "dependencies": {
+    "ts-proto": "^2.0.2"
+  }
+}
