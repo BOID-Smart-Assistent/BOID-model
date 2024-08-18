@@ -49,3 +49,18 @@ cp $POM_FILE dist/java
 echo "Creating Maven package"
 cd dist/java
 mvn clean package
+
+echo "Adding all changes to GIT"
+git add -A
+read -p "About to commit changes, press any key to continue. Do CTRL+C to abort."
+git commit --allow-empty-message
+if [ $? -eq 0 ]
+then
+  echo "GIT commit completed"
+  git tag -a "v${NEW_VERSION}" -m "Version ${NEW_VERSION}"
+  echo "Pushing version to remote"
+  git push --follow-tags --set-upstream origin "$(git branch --show-current)"
+else
+  echo "GIT commit failed, aborting!"
+  exit
+fi
