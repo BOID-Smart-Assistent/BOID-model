@@ -55,6 +55,9 @@ PROTOC_BIN="Unknown"
 if [[ "${OS}" = "Mac" ]]; then
   PROTOC_BIN="protoc-macos-universal"
   echo "Using MacOS Protoc binary"
+elif [[ "${OS}" = "Linux" ]]; then 
+  PROTOC_BIN="protoc-linux-x86"
+  echo "Using Linux x86 binary"
 else
   echo "Could not determine which executable to use"
   exit 10;
@@ -71,6 +74,8 @@ if [ $? -eq 0 ]
     echo "Failed to compile proto files! Exiting!"
     exit 1
 fi
+
+rm -R ./uu
 
 # ./bin/$PROTOC_BIN -I=$SRC_DIR --java_out=$JAVA_DIR $SRC_DIR/common/world.proto
 

@@ -4,8 +4,11 @@
   "main": "dist/typescript/index.js",
   "types": "dist/typescript/index.d.ts",
   "repository": "git@github.com:BOID-Smart-Assistent/BOID-model.git",
-  "author": "Fabio Dijkshoorn <fabio@uu.nl>",
+  "author": "Fabio Dijkshoorn <f.dijkshoorn@uu.nl>",
   "license": "MIT",
+  "scripts": {
+    "compile": "./compile.sh && node ./bin/bundle.js && tsc"
+  },
   "dependencies": {
     "ts-proto": "^2.0.2"
   }
