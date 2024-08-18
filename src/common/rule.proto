@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package uu.boid;
+package model.boid;
 
 // each message gets its own class
 option java_multiple_files = true;
 // proper package name otherwise uses uu.boid
-option java_package = "nl.uu.boid";
+option java_package = "nl.uu.model.boid";
 
 message Rule {
   int32 head = 1;

@@ -8,20 +8,20 @@
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { messageTypeRegistry } from "../typeRegistry";
 
-export const protobufPackage = "uu.boid";
+export const protobufPackage = "model.boid";
 
 export interface Rule {
-  $type: "uu.boid.Rule";
+  $type: "model.boid.Rule";
   head: number;
   complement: number;
 }
 
 function createBaseRule(): Rule {
-  return { $type: "uu.boid.Rule", head: 0, complement: 0 };
+  return { $type: "model.boid.Rule", head: 0, complement: 0 };
 }
 
 export const Rule = {
-  $type: "uu.boid.Rule" as const,
+  $type: "model.boid.Rule" as const,
 
   encode(message: Rule, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.head !== 0) {

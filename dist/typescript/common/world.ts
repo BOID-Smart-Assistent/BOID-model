@@ -8,10 +8,10 @@
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { messageTypeRegistry } from "../typeRegistry";
 
-export const protobufPackage = "uu.boid";
+export const protobufPackage = "model.boid";
 
 export interface Person {
-  $type: "uu.boid.Person";
+  $type: "model.boid.Person";
   name: string;
   id: number;
   email: string;
@@ -64,17 +64,17 @@ export function person_PhoneTypeToJSON(object: Person_PhoneType): string {
 }
 
 export interface Person_PhoneNumber {
-  $type: "uu.boid.Person.PhoneNumber";
+  $type: "model.boid.Person.PhoneNumber";
   number: string;
   type: Person_PhoneType;
 }
 
 function createBasePerson(): Person {
-  return { $type: "uu.boid.Person", name: "", id: 0, email: "", phones: [] };
+  return { $type: "model.boid.Person", name: "", id: 0, email: "", phones: [] };
 }
 
 export const Person = {
-  $type: "uu.boid.Person" as const,
+  $type: "model.boid.Person" as const,
 
   encode(message: Person, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.name !== "") {
@@ -181,11 +181,11 @@ export const Person = {
 messageTypeRegistry.set(Person.$type, Person);
 
 function createBasePerson_PhoneNumber(): Person_PhoneNumber {
-  return { $type: "uu.boid.Person.PhoneNumber", number: "", type: 0 };
+  return { $type: "model.boid.Person.PhoneNumber", number: "", type: 0 };
 }
 
 export const Person_PhoneNumber = {
-  $type: "uu.boid.Person.PhoneNumber" as const,
+  $type: "model.boid.Person.PhoneNumber" as const,
 
   encode(message: Person_PhoneNumber, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.number !== "") {

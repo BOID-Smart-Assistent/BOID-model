@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='boid_model',
-      version="0.0.8",
+      version="0.0.9",
       description='Protobuf messages for BOID smart assistent',
       author='Fabio Dijkshoorn [Utrecht University]',
       author_email='f.dijkshoorn@uu.nl',
