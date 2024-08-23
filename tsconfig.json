@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "outDir": "./dist/typescript/",
+    "target": "ES2022",
+    "module": "CommonJS",
     "declaration": true,
-    "esModuleInterop": true,
-    "strict": true
+    "rootDir": "src_typescript",
+    "outDir": "./packed/typescript",
+    "strict": true,
+    "types": [
+      "node"
+    ]
   },
-  "include": ["./dist/typescript/"],
-  "exclude": ["node_modules"]
+  "include": ["src_typescript"]
 }

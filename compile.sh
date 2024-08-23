@@ -39,6 +39,7 @@ OUTPUT_ARGS+=("--ts_proto_opt=context=true")
 OUTPUT_ARGS+=("--ts_proto_opt=lowerCaseServiceMethods=true")
 OUTPUT_ARGS+=("--ts_proto_opt=useExactTypes=false")
 OUTPUT_ARGS+=("--ts_proto_opt=outputServices=generic-definitions,outputServices=default")
+OUTPUT_ARGS+=("--ts_proto_opt=exportCommonSymbols=false")
 
 if [[ ! -d "${PY_DIR}" ]]; then
   echo "Creating Python build folder"
