@@ -47,7 +47,6 @@ if [[ ! -d "${PY_DIR}" ]]; then
   echo "Created Python build folder"
 fi
 
-# OUTPUT_ARGS+=("--python_betterproto_out=${PY_DIR}")
 OUTPUT_ARGS+=("--python_betterproto_out=${PY_DIR}")
 
 
@@ -77,9 +76,3 @@ if [ $? -eq 0 ]
 fi
 
 rm -R ./model
-
-# ./bin/$PROTOC_BIN -I=$SRC_DIR --java_out=$JAVA_DIR $SRC_DIR/common/world.proto
-
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-#
-# fi

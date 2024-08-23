@@ -10,6 +10,7 @@
     "compile": "./compile.sh && node ./bin/bundle.js && tsc"
   },
   "dependencies": {
+    "ts-poet": "^6.9.0",
     "ts-proto": "^2.0.2"
   }
 }
