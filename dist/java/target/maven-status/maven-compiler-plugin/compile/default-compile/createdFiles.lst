@@ -7,6 +7,8 @@ nl/uu/model/boid/Person$PhoneNumber$1.class
 nl/uu/boid/RuleOrBuilder.class
 nl/uu/boid/Person$PhoneNumber.class
 nl/uu/boid/Person$PhoneType$1.class
+nl/uu/model/boid/LLMRulesOuput$1.class
+nl/uu/model/boid/LLMRulesOuputOrBuilder.class
 nl/uu/boid/Person$PhoneType.class
 nl/uu/boid/Person$PhoneNumberOrBuilder.class
 nl/uu/model/boid/Person$Builder.class
@@ -14,8 +16,10 @@ nl/uu/model/boid/Person$PhoneNumber$Builder.class
 nl/uu/boid/Rule$1.class
 nl/uu/boid/World.class
 nl/uu/model/boid/RuleOuterClass.class
+nl/uu/model/boid/LLMRulesOuput$Builder.class
 nl/uu/model/boid/PersonOrBuilder.class
 nl/uu/model/boid/Rule$1.class
+nl/uu/model/boid/LlmRulesOutput.class
 nl/uu/boid/Rule$Builder.class
 nl/uu/model/boid/Person$PhoneNumberOrBuilder.class
 nl/uu/model/boid/Person$1.class
@@ -24,6 +28,7 @@ nl/uu/model/boid/Person.class
 nl/uu/model/boid/World.class
 nl/uu/boid/Person$PhoneNumber$Builder.class
 nl/uu/model/boid/Rule.class
+nl/uu/model/boid/LLMRulesOuput.class
 nl/uu/model/boid/Person$PhoneNumber.class
 nl/uu/model/boid/Person$PhoneType$1.class
 nl/uu/boid/Person$1.class
