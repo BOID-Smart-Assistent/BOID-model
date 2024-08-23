@@ -75,7 +75,7 @@ if [ $? -eq 0 ]
     exit 1
 fi
 
-rm -R ./uu
+rm -R ./model
 
 # ./bin/$PROTOC_BIN -I=$SRC_DIR --java_out=$JAVA_DIR $SRC_DIR/common/world.proto
 
