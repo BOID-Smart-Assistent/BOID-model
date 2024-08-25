@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package model.boid;
+
+// each message gets its own class
+option java_multiple_files = true;
+// proper package name otherwise uses uu.boid
+option java_package = "nl.uu.model.boid.algorithm";
+
+message Schedule {
+  // All the timeslots in the schedule
+  repeated Timeslot timeslots = 1;
+}
+
+message Timeslot {
+  string id = 1;
+  // The presentation given at the current timeslot
+  Presentation presentation = 2; 
+}
+
+// TODO: Rename this to something more generic
+message Presentation {
+  string id = 1;
+  // The name of the presentation
+  string label = 2;
+}

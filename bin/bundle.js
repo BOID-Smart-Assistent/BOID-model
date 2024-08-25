@@ -61,6 +61,8 @@ let modules = [];
 const regExp = /export (interface|enum|type|class) (.*)/g;
 
 function getModules(location) {
+  if (!fs.lstatSync(location).isDirectory()) return;
+
   const items = fs.readdirSync(location);
 
   for (const item of items) {

@@ -1,3 +1,6 @@
+export { Schedule } from "./algorithm/schedule";
+export { Timeslot } from "./algorithm/schedule";
+export { Presentation } from "./algorithm/schedule";
 export { Rule } from "./common/rule";
 export { Person } from "./common/world";
 export { Person_PhoneType } from "./common/world";

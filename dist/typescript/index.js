@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.messageTypeRegistry = exports.LLMRulesOuput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Rule = void 0;
+exports.messageTypeRegistry = exports.LLMRulesOuput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Rule = exports.Presentation = exports.Timeslot = exports.Schedule = void 0;
+var schedule_1 = require("./algorithm/schedule");
+Object.defineProperty(exports, "Schedule", { enumerable: true, get: function () { return schedule_1.Schedule; } });
+var schedule_2 = require("./algorithm/schedule");
+Object.defineProperty(exports, "Timeslot", { enumerable: true, get: function () { return schedule_2.Timeslot; } });
+var schedule_3 = require("./algorithm/schedule");
+Object.defineProperty(exports, "Presentation", { enumerable: true, get: function () { return schedule_3.Presentation; } });
 var rule_1 = require("./common/rule");
 Object.defineProperty(exports, "Rule", { enumerable: true, get: function () { return rule_1.Rule; } });
 var world_1 = require("./common/world");
