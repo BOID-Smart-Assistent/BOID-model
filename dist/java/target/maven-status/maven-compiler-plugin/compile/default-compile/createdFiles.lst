@@ -1,9 +1,12 @@
 nl/uu/model/boid/RuleOrBuilder.class
 nl/uu/model/boid/Person$PhoneNumber$1.class
 nl/uu/model/boid/algorithm/Presentation$Builder.class
+nl/uu/model/boid/AuthenticateOuterClass.class
 nl/uu/model/boid/algorithm/TimeslotOrBuilder.class
 nl/uu/model/boid/LLMRulesOuput$1.class
 nl/uu/model/boid/LLMRulesOuputOrBuilder.class
+nl/uu/model/boid/AuthenticateOrBuilder.class
+nl/uu/model/boid/Authenticate$Builder.class
 nl/uu/model/boid/algorithm/PresentationOrBuilder.class
 nl/uu/model/boid/Person$Builder.class
 nl/uu/model/boid/algorithm/ScheduleOuterClass.class
@@ -16,11 +19,13 @@ nl/uu/model/boid/algorithm/Schedule$1.class
 nl/uu/model/boid/PersonOrBuilder.class
 nl/uu/model/boid/algorithm/Timeslot$Builder.class
 nl/uu/model/boid/Rule$1.class
+nl/uu/model/boid/Authenticate$1.class
 nl/uu/model/boid/LlmRulesOutput.class
 nl/uu/model/boid/Person$PhoneNumberOrBuilder.class
 nl/uu/model/boid/Person$1.class
 nl/uu/model/boid/Person$PhoneType.class
 nl/uu/model/boid/algorithm/ScheduleOrBuilder.class
+nl/uu/model/boid/Authenticate.class
 nl/uu/model/boid/Person.class
 nl/uu/model/boid/World.class
 nl/uu/model/boid/algorithm/Schedule.class

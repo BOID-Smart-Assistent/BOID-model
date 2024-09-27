@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package model.boid;
+
+// each message gets its own class
+option java_multiple_files = true;
+// proper package name otherwise uses uu.boid
+option java_package = "nl.uu.model.boid";
+
+message Authenticate {
+  string id = 1; 
+}

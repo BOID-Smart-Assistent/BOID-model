@@ -61,6 +61,7 @@ let modules = [];
 const regExp = /export (interface|enum|type|class) (.*)/g;
 
 function getModules(location) {
+  
   if (!fs.lstatSync(location).isDirectory()) return;
 
   const items = fs.readdirSync(location);
@@ -70,7 +71,7 @@ function getModules(location) {
       continue;
     }
 
-    if (!item.endsWith('.ts')) {
+    if (!item.endsWith('.ts') || item.endsWith('.d.ts')) {
       getModules(path.join(location, item))
     } else {
       console.log(`${location}/${item}`);
@@ -97,7 +98,7 @@ function getModules(location) {
 
           if(name !== 'DataLoaderOptions' && name !== 'DataLoaders' && name !== 'Exact' && name !== 'DeepPartial') {
             console.log(`\t- ${name}`);
-
+            
             modules.push({
               name: name,
               location: location.split('typescript/')[1] + '/' + item.split('.')[0]
