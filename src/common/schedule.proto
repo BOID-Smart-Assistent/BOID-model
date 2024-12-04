@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package model.boid;
+
+// each message gets its own class
+option java_multiple_files = true;
+// proper package name otherwise uses uu.boid
+option java_package = "nl.uu.model.boid.data";
+
+message Schedule {
+  // All the timeslots in the schedule
+  repeated Day schedule = 1;
+}
+
+message Day {
+  string date = 1;
+  repeated Timeslot timeslots = 2;
+}
+
+message Timeslot {
+  int32 id = 1;
+  repeated Presentation presentations = 2;
+}
+// Rework this into a more detailed way
+message Presentation {
+  int32 id = 1;
+  string name = 2;
+  string topic = 3;
+}

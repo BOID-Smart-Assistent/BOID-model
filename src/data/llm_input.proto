@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package model.boid;
+
+import "common/schedule.proto";
+
+// each message gets its own class
+option java_multiple_files = true;
+// proper package name otherwise uses uu.boid
+option java_package = "nl.uu.model.boid.data";
+
+message LLMInput {
+  // The schedule of the conference
+  Schedule schedule = 1;
+  // the user information required for the rules
+  User user = 2;
+}
+
+message User {
+  // Identification of the user
+  int32 id = 1;
+  string name = 2;
+  repeated string obligations = 3;
+  repeated string interests = 4;
+  repeated string preferred_speakers = 5;
+  string role = 6;
+  string affiliations = 7;
+}

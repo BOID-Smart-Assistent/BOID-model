@@ -1,10 +1,13 @@
-export { Schedule } from "./algorithm/schedule";
-export { Timeslot } from "./algorithm/schedule";
-export { Presentation } from "./algorithm/schedule";
 export { Authenticate } from "./common/authenticate";
 export { Rule } from "./common/rule";
+export { Schedule } from "./common/schedule";
+export { Day } from "./common/schedule";
+export { Timeslot } from "./common/schedule";
+export { Presentation } from "./common/schedule";
 export { Person } from "./common/world";
 export { Person_PhoneType } from "./common/world";
 export { Person_PhoneNumber } from "./common/world";
+export { LLMInput } from "./data/llm_input";
+export { User } from "./data/llm_input";
 export { LLMRulesOuput } from "./llm/llm_rules_output";
 export { messageTypeRegistry } from "./typeRegistry";
