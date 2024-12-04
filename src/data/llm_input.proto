@@ -9,7 +9,7 @@ option java_multiple_files = true;
 // proper package name otherwise uses uu.boid
 option java_package = "nl.uu.model.boid.data";
 
-message LLMInput {
+message LlmInput {
   // The schedule of the conference
   Schedule schedule = 1;
   // the user information required for the rules

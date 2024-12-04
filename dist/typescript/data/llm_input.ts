@@ -9,8 +9,8 @@ import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Schedule } from "../common/schedule";
 import { messageTypeRegistry } from "../typeRegistry";
 
-export interface LLMInput {
-  $type: "model.boid.LLMInput";
+export interface LlmInput {
+  $type: "model.boid.LlmInput";
   /** The schedule of the conference */
   schedule:
     | Schedule
@@ -31,14 +31,14 @@ export interface User {
   affiliations: string;
 }
 
-function createBaseLLMInput(): LLMInput {
-  return { $type: "model.boid.LLMInput", schedule: undefined, user: undefined };
+function createBaseLlmInput(): LlmInput {
+  return { $type: "model.boid.LlmInput", schedule: undefined, user: undefined };
 }
 
-export const LLMInput = {
-  $type: "model.boid.LLMInput" as const,
+export const LlmInput = {
+  $type: "model.boid.LlmInput" as const,
 
-  encode(message: LLMInput, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+  encode(message: LlmInput, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.schedule !== undefined) {
       Schedule.encode(message.schedule, writer.uint32(10).fork()).join();
     }
@@ -48,10 +48,10 @@ export const LLMInput = {
     return writer;
   },
 
-  decode(input: BinaryReader | Uint8Array, length?: number): LLMInput {
+  decode(input: BinaryReader | Uint8Array, length?: number): LlmInput {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseLLMInput();
+    const message = createBaseLlmInput();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -78,15 +78,15 @@ export const LLMInput = {
     return message;
   },
 
-  fromJSON(object: any): LLMInput {
+  fromJSON(object: any): LlmInput {
     return {
-      $type: LLMInput.$type,
+      $type: LlmInput.$type,
       schedule: isSet(object.schedule) ? Schedule.fromJSON(object.schedule) : undefined,
       user: isSet(object.user) ? User.fromJSON(object.user) : undefined,
     };
   },
 
-  toJSON(message: LLMInput): unknown {
+  toJSON(message: LlmInput): unknown {
     const obj: any = {};
     if (message.schedule !== undefined) {
       obj.schedule = Schedule.toJSON(message.schedule);
@@ -97,11 +97,11 @@ export const LLMInput = {
     return obj;
   },
 
-  create(base?: DeepPartial<LLMInput>): LLMInput {
-    return LLMInput.fromPartial(base ?? {});
+  create(base?: DeepPartial<LlmInput>): LlmInput {
+    return LlmInput.fromPartial(base ?? {});
   },
-  fromPartial(object: DeepPartial<LLMInput>): LLMInput {
-    const message = createBaseLLMInput();
+  fromPartial(object: DeepPartial<LlmInput>): LlmInput {
+    const message = createBaseLlmInput();
     message.schedule = (object.schedule !== undefined && object.schedule !== null)
       ? Schedule.fromPartial(object.schedule)
       : undefined;
@@ -110,7 +110,7 @@ export const LLMInput = {
   },
 };
 
-messageTypeRegistry.set(LLMInput.$type, LLMInput);
+messageTypeRegistry.set(LlmInput.$type, LlmInput);
 
 function createBaseUser(): User {
   return {

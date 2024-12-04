@@ -5,8 +5,8 @@
 
 package nl.uu.model.boid.data;
 
-public final class LlmInput {
-  private LlmInput() {}
+public final class LlmInputOuterClass {
+  private LlmInputOuterClass() {}
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
       com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
@@ -14,7 +14,7 @@ public final class LlmInput {
       /* minor= */ 27,
       /* patch= */ 2,
       /* suffix= */ "",
-      LlmInput.class.getName());
+      LlmInputOuterClass.class.getName());
   }
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
@@ -26,10 +26,10 @@ public final class LlmInput {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_model_boid_LLMInput_descriptor;
+    internal_static_model_boid_LlmInput_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_model_boid_LLMInput_fieldAccessorTable;
+      internal_static_model_boid_LlmInput_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_model_boid_User_descriptor;
   static final 
@@ -45,7 +45,7 @@ public final class LlmInput {
   static {
     java.lang.String[] descriptorData = {
       "\n\024data/llm_input.proto\022\nmodel.boid\032\025comm" +
-      "on/schedule.proto\"R\n\010LLMInput\022&\n\010schedul" +
+      "on/schedule.proto\"R\n\010LlmInput\022&\n\010schedul" +
       "e\030\001 \001(\0132\024.model.boid.Schedule\022\036\n\004user\030\002 " +
       "\001(\0132\020.model.boid.User\"\210\001\n\004User\022\n\n\002id\030\001 \001" +
       "(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013obligations\030\003 \003(\t\022\021\n" +
@@ -58,11 +58,11 @@ public final class LlmInput {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           nl.uu.model.boid.data.ScheduleOuterClass.getDescriptor(),
         });
-    internal_static_model_boid_LLMInput_descriptor =
+    internal_static_model_boid_LlmInput_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_model_boid_LLMInput_fieldAccessorTable = new
+    internal_static_model_boid_LlmInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_model_boid_LLMInput_descriptor,
+        internal_static_model_boid_LlmInput_descriptor,
         new java.lang.String[] { "Schedule", "User", });
     internal_static_model_boid_User_descriptor =
       getDescriptor().getMessageTypes().get(1);

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.messageTypeRegistry = exports.LLMRulesOuput = exports.User = exports.LLMInput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Presentation = exports.Timeslot = exports.Day = exports.Schedule = exports.Rule = exports.Authenticate = void 0;
+exports.messageTypeRegistry = exports.LLMRulesOuput = exports.LlmOutput = exports.User = exports.LlmInput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Presentation = exports.Timeslot = exports.Day = exports.Schedule = exports.Rule = exports.Authenticate = void 0;
 var authenticate_1 = require("./common/authenticate");
 Object.defineProperty(exports, "Authenticate", { enumerable: true, get: function () { return authenticate_1.Authenticate; } });
 var rule_1 = require("./common/rule");
@@ -20,9 +20,11 @@ Object.defineProperty(exports, "Person_PhoneType", { enumerable: true, get: func
 var world_3 = require("./common/world");
 Object.defineProperty(exports, "Person_PhoneNumber", { enumerable: true, get: function () { return world_3.Person_PhoneNumber; } });
 var llm_input_1 = require("./data/llm_input");
-Object.defineProperty(exports, "LLMInput", { enumerable: true, get: function () { return llm_input_1.LLMInput; } });
+Object.defineProperty(exports, "LlmInput", { enumerable: true, get: function () { return llm_input_1.LlmInput; } });
 var llm_input_2 = require("./data/llm_input");
 Object.defineProperty(exports, "User", { enumerable: true, get: function () { return llm_input_2.User; } });
+var llm_output_1 = require("./data/llm_output");
+Object.defineProperty(exports, "LlmOutput", { enumerable: true, get: function () { return llm_output_1.LlmOutput; } });
 var llm_rules_output_1 = require("./llm/llm_rules_output");
 Object.defineProperty(exports, "LLMRulesOuput", { enumerable: true, get: function () { return llm_rules_output_1.LLMRulesOuput; } });
 var typeRegistry_1 = require("./typeRegistry");

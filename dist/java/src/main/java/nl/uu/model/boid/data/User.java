@@ -40,13 +40,13 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return nl.uu.model.boid.data.LlmInput.internal_static_model_boid_User_descriptor;
+    return nl.uu.model.boid.data.LlmInputOuterClass.internal_static_model_boid_User_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return nl.uu.model.boid.data.LlmInput.internal_static_model_boid_User_fieldAccessorTable
+    return nl.uu.model.boid.data.LlmInputOuterClass.internal_static_model_boid_User_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             nl.uu.model.boid.data.User.class, nl.uu.model.boid.data.User.Builder.class);
   }
@@ -541,13 +541,13 @@ private static final long serialVersionUID = 0L;
       nl.uu.model.boid.data.UserOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return nl.uu.model.boid.data.LlmInput.internal_static_model_boid_User_descriptor;
+      return nl.uu.model.boid.data.LlmInputOuterClass.internal_static_model_boid_User_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return nl.uu.model.boid.data.LlmInput.internal_static_model_boid_User_fieldAccessorTable
+      return nl.uu.model.boid.data.LlmInputOuterClass.internal_static_model_boid_User_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               nl.uu.model.boid.data.User.class, nl.uu.model.boid.data.User.Builder.class);
     }
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return nl.uu.model.boid.data.LlmInput.internal_static_model_boid_User_descriptor;
+      return nl.uu.model.boid.data.LlmInputOuterClass.internal_static_model_boid_User_descriptor;
     }
 
     @java.lang.Override

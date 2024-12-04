@@ -1,7 +1,7 @@
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Schedule } from "../common/schedule";
-export interface LLMInput {
-    $type: "model.boid.LLMInput";
+export interface LlmInput {
+    $type: "model.boid.LlmInput";
     /** The schedule of the conference */
     schedule: Schedule | undefined;
     /** the user information required for the rules */
@@ -18,14 +18,14 @@ export interface User {
     role: string;
     affiliations: string;
 }
-export declare const LLMInput: {
-    $type: "model.boid.LLMInput";
-    encode(message: LLMInput, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): LLMInput;
-    fromJSON(object: any): LLMInput;
-    toJSON(message: LLMInput): unknown;
-    create(base?: DeepPartial<LLMInput>): LLMInput;
-    fromPartial(object: DeepPartial<LLMInput>): LLMInput;
+export declare const LlmInput: {
+    $type: "model.boid.LlmInput";
+    encode(message: LlmInput, writer?: BinaryWriter): BinaryWriter;
+    decode(input: BinaryReader | Uint8Array, length?: number): LlmInput;
+    fromJSON(object: any): LlmInput;
+    toJSON(message: LlmInput): unknown;
+    create(base?: DeepPartial<LlmInput>): LlmInput;
+    fromPartial(object: DeepPartial<LlmInput>): LlmInput;
 };
 export declare const User: {
     $type: "model.boid.User";

@@ -5,8 +5,8 @@
 
 package nl.uu.model.boid.data;
 
-public interface LLMInputOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:model.boid.LLMInput)
+public interface LlmInputOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:model.boid.LlmInput)
     com.google.protobuf.MessageOrBuilder {
 
   /**

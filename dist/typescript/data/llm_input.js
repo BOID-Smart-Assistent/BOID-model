@@ -5,16 +5,16 @@
 //   protoc               v5.27.2
 // source: data/llm_input.proto
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = exports.LLMInput = void 0;
+exports.User = exports.LlmInput = void 0;
 /* eslint-disable */
 const wire_1 = require("@bufbuild/protobuf/wire");
 const schedule_1 = require("../common/schedule");
 const typeRegistry_1 = require("../typeRegistry");
-function createBaseLLMInput() {
-    return { $type: "model.boid.LLMInput", schedule: undefined, user: undefined };
+function createBaseLlmInput() {
+    return { $type: "model.boid.LlmInput", schedule: undefined, user: undefined };
 }
-exports.LLMInput = {
-    $type: "model.boid.LLMInput",
+exports.LlmInput = {
+    $type: "model.boid.LlmInput",
     encode(message, writer = new wire_1.BinaryWriter()) {
         if (message.schedule !== undefined) {
             schedule_1.Schedule.encode(message.schedule, writer.uint32(10).fork()).join();
@@ -27,7 +27,7 @@ exports.LLMInput = {
     decode(input, length) {
         const reader = input instanceof wire_1.BinaryReader ? input : new wire_1.BinaryReader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseLLMInput();
+        const message = createBaseLlmInput();
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
@@ -53,7 +53,7 @@ exports.LLMInput = {
     },
     fromJSON(object) {
         return {
-            $type: exports.LLMInput.$type,
+            $type: exports.LlmInput.$type,
             schedule: isSet(object.schedule) ? schedule_1.Schedule.fromJSON(object.schedule) : undefined,
             user: isSet(object.user) ? exports.User.fromJSON(object.user) : undefined,
         };
@@ -69,10 +69,10 @@ exports.LLMInput = {
         return obj;
     },
     create(base) {
-        return exports.LLMInput.fromPartial(base ?? {});
+        return exports.LlmInput.fromPartial(base ?? {});
     },
     fromPartial(object) {
-        const message = createBaseLLMInput();
+        const message = createBaseLlmInput();
         message.schedule = (object.schedule !== undefined && object.schedule !== null)
             ? schedule_1.Schedule.fromPartial(object.schedule)
             : undefined;
@@ -80,7 +80,7 @@ exports.LLMInput = {
         return message;
     },
 };
-typeRegistry_1.messageTypeRegistry.set(exports.LLMInput.$type, exports.LLMInput);
+typeRegistry_1.messageTypeRegistry.set(exports.LlmInput.$type, exports.LlmInput);
 function createBaseUser() {
     return {
         $type: "model.boid.User",
