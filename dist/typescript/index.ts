@@ -1,4 +1,5 @@
 export { Authenticate } from "./common/authenticate";
+export { BoidType } from "./common/rule";
 export { Rule } from "./common/rule";
 export { Schedule } from "./common/schedule";
 export { Day } from "./common/schedule";

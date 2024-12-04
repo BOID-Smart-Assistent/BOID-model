@@ -1,8 +1,18 @@
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+export declare enum BoidType {
+    BELIEF = 0,
+    OBLIGATION = 1,
+    INTENTION = 2,
+    DESIRE = 3,
+    UNRECOGNIZED = -1
+}
+export declare function boidTypeFromJSON(object: any): BoidType;
+export declare function boidTypeToJSON(object: BoidType): string;
 export interface Rule {
     $type: "model.boid.Rule";
-    head: number;
-    complement: number;
+    head: string;
+    complement: string;
+    ruleType: BoidType;
 }
 export declare const Rule: {
     $type: "model.boid.Rule";

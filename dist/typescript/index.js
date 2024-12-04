@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.messageTypeRegistry = exports.LLMRulesOuput = exports.LlmOutput = exports.User = exports.LlmInput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Presentation = exports.Timeslot = exports.Day = exports.Schedule = exports.Rule = exports.Authenticate = void 0;
+exports.messageTypeRegistry = exports.LLMRulesOuput = exports.LlmOutput = exports.User = exports.LlmInput = exports.Person_PhoneNumber = exports.Person_PhoneType = exports.Person = exports.Presentation = exports.Timeslot = exports.Day = exports.Schedule = exports.Rule = exports.BoidType = exports.Authenticate = void 0;
 var authenticate_1 = require("./common/authenticate");
 Object.defineProperty(exports, "Authenticate", { enumerable: true, get: function () { return authenticate_1.Authenticate; } });
 var rule_1 = require("./common/rule");
-Object.defineProperty(exports, "Rule", { enumerable: true, get: function () { return rule_1.Rule; } });
+Object.defineProperty(exports, "BoidType", { enumerable: true, get: function () { return rule_1.BoidType; } });
+var rule_2 = require("./common/rule");
+Object.defineProperty(exports, "Rule", { enumerable: true, get: function () { return rule_2.Rule; } });
 var schedule_1 = require("./common/schedule");
 Object.defineProperty(exports, "Schedule", { enumerable: true, get: function () { return schedule_1.Schedule; } });
 var schedule_2 = require("./common/schedule");

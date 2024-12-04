@@ -5,21 +5,69 @@
 //   protoc               v5.27.2
 // source: common/rule.proto
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Rule = void 0;
+exports.Rule = exports.BoidType = void 0;
+exports.boidTypeFromJSON = boidTypeFromJSON;
+exports.boidTypeToJSON = boidTypeToJSON;
 /* eslint-disable */
 const wire_1 = require("@bufbuild/protobuf/wire");
 const typeRegistry_1 = require("../typeRegistry");
+var BoidType;
+(function (BoidType) {
+    BoidType[BoidType["BELIEF"] = 0] = "BELIEF";
+    BoidType[BoidType["OBLIGATION"] = 1] = "OBLIGATION";
+    BoidType[BoidType["INTENTION"] = 2] = "INTENTION";
+    BoidType[BoidType["DESIRE"] = 3] = "DESIRE";
+    BoidType[BoidType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(BoidType || (exports.BoidType = BoidType = {}));
+function boidTypeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "BELIEF":
+            return BoidType.BELIEF;
+        case 1:
+        case "OBLIGATION":
+            return BoidType.OBLIGATION;
+        case 2:
+        case "INTENTION":
+            return BoidType.INTENTION;
+        case 3:
+        case "DESIRE":
+            return BoidType.DESIRE;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return BoidType.UNRECOGNIZED;
+    }
+}
+function boidTypeToJSON(object) {
+    switch (object) {
+        case BoidType.BELIEF:
+            return "BELIEF";
+        case BoidType.OBLIGATION:
+            return "OBLIGATION";
+        case BoidType.INTENTION:
+            return "INTENTION";
+        case BoidType.DESIRE:
+            return "DESIRE";
+        case BoidType.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
 function createBaseRule() {
-    return { $type: "model.boid.Rule", head: 0, complement: 0 };
+    return { $type: "model.boid.Rule", head: "", complement: "", ruleType: 0 };
 }
 exports.Rule = {
     $type: "model.boid.Rule",
     encode(message, writer = new wire_1.BinaryWriter()) {
-        if (message.head !== 0) {
-            writer.uint32(8).int32(message.head);
+        if (message.head !== "") {
+            writer.uint32(10).string(message.head);
         }
-        if (message.complement !== 0) {
-            writer.uint32(16).int32(message.complement);
+        if (message.complement !== "") {
+            writer.uint32(18).string(message.complement);
+        }
+        if (message.ruleType !== 0) {
+            writer.uint32(24).int32(message.ruleType);
         }
         return writer;
     },
@@ -31,16 +79,22 @@ exports.Rule = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    if (tag !== 8) {
+                    if (tag !== 10) {
                         break;
                     }
-                    message.head = reader.int32();
+                    message.head = reader.string();
                     continue;
                 case 2:
-                    if (tag !== 16) {
+                    if (tag !== 18) {
                         break;
                     }
-                    message.complement = reader.int32();
+                    message.complement = reader.string();
+                    continue;
+                case 3:
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.ruleType = reader.int32();
                     continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -53,17 +107,21 @@ exports.Rule = {
     fromJSON(object) {
         return {
             $type: exports.Rule.$type,
-            head: isSet(object.head) ? globalThis.Number(object.head) : 0,
-            complement: isSet(object.complement) ? globalThis.Number(object.complement) : 0,
+            head: isSet(object.head) ? globalThis.String(object.head) : "",
+            complement: isSet(object.complement) ? globalThis.String(object.complement) : "",
+            ruleType: isSet(object.ruleType) ? boidTypeFromJSON(object.ruleType) : 0,
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.head !== 0) {
-            obj.head = Math.round(message.head);
+        if (message.head !== "") {
+            obj.head = message.head;
         }
-        if (message.complement !== 0) {
-            obj.complement = Math.round(message.complement);
+        if (message.complement !== "") {
+            obj.complement = message.complement;
+        }
+        if (message.ruleType !== 0) {
+            obj.ruleType = boidTypeToJSON(message.ruleType);
         }
         return obj;
     },
@@ -72,8 +130,9 @@ exports.Rule = {
     },
     fromPartial(object) {
         const message = createBaseRule();
-        message.head = object.head ?? 0;
-        message.complement = object.complement ?? 0;
+        message.head = object.head ?? "";
+        message.complement = object.complement ?? "";
+        message.ruleType = object.ruleType ?? 0;
         return message;
     },
 };

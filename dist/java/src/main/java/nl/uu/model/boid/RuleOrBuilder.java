@@ -10,14 +10,37 @@ public interface RuleOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 head = 1;</code>
+   * <code>string head = 1;</code>
    * @return The head.
    */
-  int getHead();
+  java.lang.String getHead();
+  /**
+   * <code>string head = 1;</code>
+   * @return The bytes for head.
+   */
+  com.google.protobuf.ByteString
+      getHeadBytes();
 
   /**
-   * <code>int32 complement = 2;</code>
+   * <code>string complement = 2;</code>
    * @return The complement.
    */
-  int getComplement();
+  java.lang.String getComplement();
+  /**
+   * <code>string complement = 2;</code>
+   * @return The bytes for complement.
+   */
+  com.google.protobuf.ByteString
+      getComplementBytes();
+
+  /**
+   * <code>.model.boid.BoidType rule_type = 3;</code>
+   * @return The enum numeric value on the wire for ruleType.
+   */
+  int getRuleTypeValue();
+  /**
+   * <code>.model.boid.BoidType rule_type = 3;</code>
+   * @return The ruleType.
+   */
+  nl.uu.model.boid.BoidType getRuleType();
 }

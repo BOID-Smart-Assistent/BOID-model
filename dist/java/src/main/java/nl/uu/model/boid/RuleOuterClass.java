@@ -39,9 +39,12 @@ public final class RuleOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021common/rule.proto\022\nmodel.boid\"(\n\004Rule\022" +
-      "\014\n\004head\030\001 \001(\005\022\022\n\ncomplement\030\002 \001(\005B\024\n\020nl." +
-      "uu.model.boidP\001b\006proto3"
+      "\n\021common/rule.proto\022\nmodel.boid\"Q\n\004Rule\022" +
+      "\014\n\004head\030\001 \001(\t\022\022\n\ncomplement\030\002 \001(\t\022\'\n\trul" +
+      "e_type\030\003 \001(\0162\024.model.boid.BoidType*A\n\010Bo" +
+      "idType\022\n\n\006BELIEF\020\000\022\016\n\nOBLIGATION\020\001\022\r\n\tIN" +
+      "TENTION\020\002\022\n\n\006DESIRE\020\003B\024\n\020nl.uu.model.boi" +
+      "dP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -52,7 +55,7 @@ public final class RuleOuterClass {
     internal_static_model_boid_Rule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_model_boid_Rule_descriptor,
-        new java.lang.String[] { "Head", "Complement", });
+        new java.lang.String[] { "Head", "Complement", "RuleType", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

@@ -1,6 +1,7 @@
 nl/uu/model/boid/RuleOrBuilder.class
 nl/uu/model/boid/data/LlmInput.class
 nl/uu/model/boid/data/User$1.class
+nl/uu/model/boid/BoidType$1.class
 nl/uu/model/boid/data/LlmInput$Builder.class
 nl/uu/model/boid/data/PresentationOrBuilder.class
 nl/uu/model/boid/AuthenticateOuterClass.class
@@ -25,6 +26,7 @@ nl/uu/model/boid/data/Schedule$Builder.class
 nl/uu/model/boid/LLMRulesOuput$Builder.class
 nl/uu/model/boid/data/DayOrBuilder.class
 nl/uu/model/boid/data/TimeslotOrBuilder.class
+nl/uu/model/boid/BoidType.class
 nl/uu/model/boid/data/LlmOutput$1.class
 nl/uu/model/boid/Rule$1.class
 nl/uu/model/boid/Authenticate$1.class

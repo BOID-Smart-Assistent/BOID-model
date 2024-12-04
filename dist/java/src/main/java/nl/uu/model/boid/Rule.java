@@ -27,6 +27,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Rule() {
+    head_ = "";
+    complement_ = "";
+    ruleType_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,25 +46,99 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEAD_FIELD_NUMBER = 1;
-  private int head_ = 0;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object head_ = "";
   /**
-   * <code>int32 head = 1;</code>
+   * <code>string head = 1;</code>
    * @return The head.
    */
   @java.lang.Override
-  public int getHead() {
-    return head_;
+  public java.lang.String getHead() {
+    java.lang.Object ref = head_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      head_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string head = 1;</code>
+   * @return The bytes for head.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getHeadBytes() {
+    java.lang.Object ref = head_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      head_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int COMPLEMENT_FIELD_NUMBER = 2;
-  private int complement_ = 0;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object complement_ = "";
   /**
-   * <code>int32 complement = 2;</code>
+   * <code>string complement = 2;</code>
    * @return The complement.
    */
   @java.lang.Override
-  public int getComplement() {
-    return complement_;
+  public java.lang.String getComplement() {
+    java.lang.Object ref = complement_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      complement_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string complement = 2;</code>
+   * @return The bytes for complement.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getComplementBytes() {
+    java.lang.Object ref = complement_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      complement_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int RULE_TYPE_FIELD_NUMBER = 3;
+  private int ruleType_ = 0;
+  /**
+   * <code>.model.boid.BoidType rule_type = 3;</code>
+   * @return The enum numeric value on the wire for ruleType.
+   */
+  @java.lang.Override public int getRuleTypeValue() {
+    return ruleType_;
+  }
+  /**
+   * <code>.model.boid.BoidType rule_type = 3;</code>
+   * @return The ruleType.
+   */
+  @java.lang.Override public nl.uu.model.boid.BoidType getRuleType() {
+    nl.uu.model.boid.BoidType result = nl.uu.model.boid.BoidType.forNumber(ruleType_);
+    return result == null ? nl.uu.model.boid.BoidType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -78,11 +155,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (head_ != 0) {
-      output.writeInt32(1, head_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(head_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, head_);
     }
-    if (complement_ != 0) {
-      output.writeInt32(2, complement_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(complement_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, complement_);
+    }
+    if (ruleType_ != nl.uu.model.boid.BoidType.BELIEF.getNumber()) {
+      output.writeEnum(3, ruleType_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -93,13 +173,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (head_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, head_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(head_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, head_);
     }
-    if (complement_ != 0) {
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(complement_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, complement_);
+    }
+    if (ruleType_ != nl.uu.model.boid.BoidType.BELIEF.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, complement_);
+        .computeEnumSize(3, ruleType_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -116,10 +198,11 @@ private static final long serialVersionUID = 0L;
     }
     nl.uu.model.boid.Rule other = (nl.uu.model.boid.Rule) obj;
 
-    if (getHead()
-        != other.getHead()) return false;
-    if (getComplement()
-        != other.getComplement()) return false;
+    if (!getHead()
+        .equals(other.getHead())) return false;
+    if (!getComplement()
+        .equals(other.getComplement())) return false;
+    if (ruleType_ != other.ruleType_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -132,9 +215,11 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + HEAD_FIELD_NUMBER;
-    hash = (53 * hash) + getHead();
+    hash = (53 * hash) + getHead().hashCode();
     hash = (37 * hash) + COMPLEMENT_FIELD_NUMBER;
-    hash = (53 * hash) + getComplement();
+    hash = (53 * hash) + getComplement().hashCode();
+    hash = (37 * hash) + RULE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + ruleType_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -266,8 +351,9 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      head_ = 0;
-      complement_ = 0;
+      head_ = "";
+      complement_ = "";
+      ruleType_ = 0;
       return this;
     }
 
@@ -307,6 +393,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.complement_ = complement_;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.ruleType_ = ruleType_;
+      }
     }
 
     @java.lang.Override
@@ -321,11 +410,18 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(nl.uu.model.boid.Rule other) {
       if (other == nl.uu.model.boid.Rule.getDefaultInstance()) return this;
-      if (other.getHead() != 0) {
-        setHead(other.getHead());
+      if (!other.getHead().isEmpty()) {
+        head_ = other.head_;
+        bitField0_ |= 0x00000001;
+        onChanged();
       }
-      if (other.getComplement() != 0) {
-        setComplement(other.getComplement());
+      if (!other.getComplement().isEmpty()) {
+        complement_ = other.complement_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      if (other.ruleType_ != 0) {
+        setRuleTypeValue(other.getRuleTypeValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -353,16 +449,21 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              head_ = input.readInt32();
+            case 10: {
+              head_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
-            } // case 8
-            case 16: {
-              complement_ = input.readInt32();
+            } // case 10
+            case 18: {
+              complement_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
-            } // case 16
+            } // case 18
+            case 24: {
+              ruleType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -380,66 +481,199 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int head_ ;
+    private java.lang.Object head_ = "";
     /**
-     * <code>int32 head = 1;</code>
+     * <code>string head = 1;</code>
      * @return The head.
      */
-    @java.lang.Override
-    public int getHead() {
-      return head_;
+    public java.lang.String getHead() {
+      java.lang.Object ref = head_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        head_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 head = 1;</code>
+     * <code>string head = 1;</code>
+     * @return The bytes for head.
+     */
+    public com.google.protobuf.ByteString
+        getHeadBytes() {
+      java.lang.Object ref = head_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        head_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string head = 1;</code>
      * @param value The head to set.
      * @return This builder for chaining.
      */
-    public Builder setHead(int value) {
-
+    public Builder setHead(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
       head_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 head = 1;</code>
+     * <code>string head = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearHead() {
+      head_ = getDefaultInstance().getHead();
       bitField0_ = (bitField0_ & ~0x00000001);
-      head_ = 0;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string head = 1;</code>
+     * @param value The bytes for head to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeadBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      head_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
-    private int complement_ ;
+    private java.lang.Object complement_ = "";
     /**
-     * <code>int32 complement = 2;</code>
+     * <code>string complement = 2;</code>
      * @return The complement.
      */
-    @java.lang.Override
-    public int getComplement() {
-      return complement_;
+    public java.lang.String getComplement() {
+      java.lang.Object ref = complement_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        complement_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 complement = 2;</code>
+     * <code>string complement = 2;</code>
+     * @return The bytes for complement.
+     */
+    public com.google.protobuf.ByteString
+        getComplementBytes() {
+      java.lang.Object ref = complement_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        complement_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string complement = 2;</code>
      * @param value The complement to set.
      * @return This builder for chaining.
      */
-    public Builder setComplement(int value) {
-
+    public Builder setComplement(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
       complement_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 complement = 2;</code>
+     * <code>string complement = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearComplement() {
+      complement_ = getDefaultInstance().getComplement();
       bitField0_ = (bitField0_ & ~0x00000002);
-      complement_ = 0;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string complement = 2;</code>
+     * @param value The bytes for complement to set.
+     * @return This builder for chaining.
+     */
+    public Builder setComplementBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      complement_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
+    private int ruleType_ = 0;
+    /**
+     * <code>.model.boid.BoidType rule_type = 3;</code>
+     * @return The enum numeric value on the wire for ruleType.
+     */
+    @java.lang.Override public int getRuleTypeValue() {
+      return ruleType_;
+    }
+    /**
+     * <code>.model.boid.BoidType rule_type = 3;</code>
+     * @param value The enum numeric value on the wire for ruleType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRuleTypeValue(int value) {
+      ruleType_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.model.boid.BoidType rule_type = 3;</code>
+     * @return The ruleType.
+     */
+    @java.lang.Override
+    public nl.uu.model.boid.BoidType getRuleType() {
+      nl.uu.model.boid.BoidType result = nl.uu.model.boid.BoidType.forNumber(ruleType_);
+      return result == null ? nl.uu.model.boid.BoidType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.model.boid.BoidType rule_type = 3;</code>
+     * @param value The ruleType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRuleType(nl.uu.model.boid.BoidType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000004;
+      ruleType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.model.boid.BoidType rule_type = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRuleType() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      ruleType_ = 0;
       onChanged();
       return this;
     }
