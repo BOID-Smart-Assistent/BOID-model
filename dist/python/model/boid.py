@@ -62,12 +62,14 @@ class Rule(betterproto.Message):
 @dataclass
 class LlmOutput(betterproto.Message):
     rules: List["Rule"] = betterproto.message_field(1)
+    user_id: int = betterproto.int32_field(2)
 
 
 @dataclass
 class BoidOutput(betterproto.Message):
     # List of the ids of the presentation
     presentations: List[int] = betterproto.int32_field(1)
+    user_id: int = betterproto.int32_field(2)
 
 
 @dataclass

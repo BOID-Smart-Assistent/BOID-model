@@ -84,6 +84,17 @@ private static final long serialVersionUID = 0L;
     return rules_.get(index);
   }
 
+  public static final int USER_ID_FIELD_NUMBER = 2;
+  private int userId_ = 0;
+  /**
+   * <code>int32 user_id = 2;</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public int getUserId() {
+    return userId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -101,6 +112,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < rules_.size(); i++) {
       output.writeMessage(1, rules_.get(i));
     }
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -113,6 +127,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < rules_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, rules_.get(i));
+    }
+    if (userId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, userId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -131,6 +149,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getRulesList()
         .equals(other.getRulesList())) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -146,6 +166,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RULES_FIELD_NUMBER;
       hash = (53 * hash) + getRulesList().hashCode();
     }
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -284,6 +306,7 @@ private static final long serialVersionUID = 0L;
         rulesBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
+      userId_ = 0;
       return this;
     }
 
@@ -330,6 +353,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(nl.uu.model.boid.data.LlmOutput result) {
       int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userId_ = userId_;
+      }
     }
 
     @java.lang.Override
@@ -370,6 +396,9 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (other.getUserId() != 0) {
+        setUserId(other.getUserId());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -409,6 +438,11 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 10
+            case 16: {
+              userId_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -664,6 +698,38 @@ private static final long serialVersionUID = 0L;
         rules_ = null;
       }
       return rulesBuilder_;
+    }
+
+    private int userId_ ;
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
+    }
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(int value) {
+
+      userId_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      userId_ = 0;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:model.boid.LlmOutput)

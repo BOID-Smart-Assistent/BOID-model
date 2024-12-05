@@ -3,6 +3,7 @@ import { Rule } from "../common/rule";
 export interface LlmOutput {
     $type: "model.boid.LlmOutput";
     rules: Rule[];
+    userId: number;
 }
 export declare const LlmOutput: {
     $type: "model.boid.LlmOutput";

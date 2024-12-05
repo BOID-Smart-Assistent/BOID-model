@@ -39,9 +39,10 @@ public final class BoidOutputOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\026data/boid_output.proto\022\nmodel.boid\"#\n\n" +
-      "BoidOutput\022\025\n\rpresentations\030\001 \003(\005B\031\n\025nl." +
-      "uu.model.boid.dataP\001b\006proto3"
+      "\n\026data/boid_output.proto\022\nmodel.boid\"4\n\n" +
+      "BoidOutput\022\025\n\rpresentations\030\001 \003(\005\022\017\n\007use" +
+      "r_id\030\002 \001(\005B\031\n\025nl.uu.model.boid.dataP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -52,7 +53,7 @@ public final class BoidOutputOuterClass {
     internal_static_model_boid_BoidOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_model_boid_BoidOutput_descriptor,
-        new java.lang.String[] { "Presentations", });
+        new java.lang.String[] { "Presentations", "UserId", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

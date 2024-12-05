@@ -37,4 +37,10 @@ public interface BoidOutputOrBuilder extends
    * @return The presentations at the given index.
    */
   int getPresentations(int index);
+
+  /**
+   * <code>int32 user_id = 2;</code>
+   * @return The userId.
+   */
+  int getUserId();
 }

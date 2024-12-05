@@ -85,6 +85,17 @@ private static final long serialVersionUID = 0L;
   }
   private int presentationsMemoizedSerializedSize = -1;
 
+  public static final int USER_ID_FIELD_NUMBER = 2;
+  private int userId_ = 0;
+  /**
+   * <code>int32 user_id = 2;</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public int getUserId() {
+    return userId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -106,6 +117,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < presentations_.size(); i++) {
       output.writeInt32NoTag(presentations_.getInt(i));
+    }
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -130,6 +144,10 @@ private static final long serialVersionUID = 0L;
       }
       presentationsMemoizedSerializedSize = dataSize;
     }
+    if (userId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, userId_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -147,6 +165,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getPresentationsList()
         .equals(other.getPresentationsList())) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -162,6 +182,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PRESENTATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getPresentationsList().hashCode();
     }
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -294,6 +316,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       presentations_ = emptyIntList();
+      userId_ = 0;
       return this;
     }
 
@@ -331,6 +354,9 @@ private static final long serialVersionUID = 0L;
         presentations_.makeImmutable();
         result.presentations_ = presentations_;
       }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userId_ = userId_;
+      }
     }
 
     @java.lang.Override
@@ -355,6 +381,9 @@ private static final long serialVersionUID = 0L;
           presentations_.addAll(other.presentations_);
         }
         onChanged();
+      }
+      if (other.getUserId() != 0) {
+        setUserId(other.getUserId());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -398,6 +427,11 @@ private static final long serialVersionUID = 0L;
               input.popLimit(limit);
               break;
             } // case 10
+            case 16: {
+              userId_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -523,6 +557,38 @@ private static final long serialVersionUID = 0L;
     public Builder clearPresentations() {
       presentations_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+
+    private int userId_ ;
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
+    }
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(int value) {
+
+      userId_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 user_id = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      userId_ = 0;
       onChanged();
       return this;
     }

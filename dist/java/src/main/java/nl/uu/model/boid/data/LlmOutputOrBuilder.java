@@ -32,4 +32,10 @@ public interface LlmOutputOrBuilder extends
    */
   nl.uu.model.boid.RuleOrBuilder getRulesOrBuilder(
       int index);
+
+  /**
+   * <code>int32 user_id = 2;</code>
+   * @return The userId.
+   */
+  int getUserId();
 }

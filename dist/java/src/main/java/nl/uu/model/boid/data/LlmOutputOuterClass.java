@@ -40,9 +40,9 @@ public final class LlmOutputOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\025data/llm_output.proto\022\nmodel.boid\032\021com" +
-      "mon/rule.proto\",\n\tLlmOutput\022\037\n\005rules\030\001 \003" +
-      "(\0132\020.model.boid.RuleB\031\n\025nl.uu.model.boid" +
-      ".dataP\001b\006proto3"
+      "mon/rule.proto\"=\n\tLlmOutput\022\037\n\005rules\030\001 \003" +
+      "(\0132\020.model.boid.Rule\022\017\n\007user_id\030\002 \001(\005B\031\n" +
+      "\025nl.uu.model.boid.dataP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -54,7 +54,7 @@ public final class LlmOutputOuterClass {
     internal_static_model_boid_LlmOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_model_boid_LlmOutput_descriptor,
-        new java.lang.String[] { "Rules", });
+        new java.lang.String[] { "Rules", "UserId", });
     descriptor.resolveAllFeaturesImmutable();
     nl.uu.model.boid.RuleOuterClass.getDescriptor();
   }

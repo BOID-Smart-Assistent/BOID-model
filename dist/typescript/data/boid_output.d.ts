@@ -3,6 +3,7 @@ export interface BoidOutput {
     $type: "model.boid.BoidOutput";
     /** List of the ids of the presentation */
     presentations: number[];
+    userId: number;
 }
 export declare const BoidOutput: {
     $type: "model.boid.BoidOutput";

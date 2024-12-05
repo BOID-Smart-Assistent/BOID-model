@@ -11,13 +11,16 @@ const wire_1 = require("@bufbuild/protobuf/wire");
 const rule_1 = require("../common/rule");
 const typeRegistry_1 = require("../typeRegistry");
 function createBaseLlmOutput() {
-    return { $type: "model.boid.LlmOutput", rules: [] };
+    return { $type: "model.boid.LlmOutput", rules: [], userId: 0 };
 }
 exports.LlmOutput = {
     $type: "model.boid.LlmOutput",
     encode(message, writer = new wire_1.BinaryWriter()) {
         for (const v of message.rules) {
             rule_1.Rule.encode(v, writer.uint32(10).fork()).join();
+        }
+        if (message.userId !== 0) {
+            writer.uint32(16).int32(message.userId);
         }
         return writer;
     },
@@ -34,6 +37,12 @@ exports.LlmOutput = {
                     }
                     message.rules.push(rule_1.Rule.decode(reader, reader.uint32()));
                     continue;
+                case 2:
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.userId = reader.int32();
+                    continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -46,12 +55,16 @@ exports.LlmOutput = {
         return {
             $type: exports.LlmOutput.$type,
             rules: globalThis.Array.isArray(object?.rules) ? object.rules.map((e) => rule_1.Rule.fromJSON(e)) : [],
+            userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
         };
     },
     toJSON(message) {
         const obj = {};
         if (message.rules?.length) {
             obj.rules = message.rules.map((e) => rule_1.Rule.toJSON(e));
+        }
+        if (message.userId !== 0) {
+            obj.userId = Math.round(message.userId);
         }
         return obj;
     },
@@ -61,7 +74,11 @@ exports.LlmOutput = {
     fromPartial(object) {
         const message = createBaseLlmOutput();
         message.rules = object.rules?.map((e) => rule_1.Rule.fromPartial(e)) || [];
+        message.userId = object.userId ?? 0;
         return message;
     },
 };
 typeRegistry_1.messageTypeRegistry.set(exports.LlmOutput.$type, exports.LlmOutput);
+function isSet(value) {
+    return value !== null && value !== undefined;
+}

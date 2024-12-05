@@ -10,4 +10,5 @@ option java_package = "nl.uu.model.boid.data";
 message BoidOutput {
   // List of the ids of the presentation
   repeated int32 presentations = 1;
+  int32 user_id = 2;
 }

@@ -12,10 +12,11 @@ export interface BoidOutput {
   $type: "model.boid.BoidOutput";
   /** List of the ids of the presentation */
   presentations: number[];
+  userId: number;
 }
 
 function createBaseBoidOutput(): BoidOutput {
-  return { $type: "model.boid.BoidOutput", presentations: [] };
+  return { $type: "model.boid.BoidOutput", presentations: [], userId: 0 };
 }
 
 export const BoidOutput = {
@@ -27,6 +28,9 @@ export const BoidOutput = {
       writer.int32(v);
     }
     writer.join();
+    if (message.userId !== 0) {
+      writer.uint32(16).int32(message.userId);
+    }
     return writer;
   },
 
@@ -54,6 +58,13 @@ export const BoidOutput = {
           }
 
           break;
+        case 2:
+          if (tag !== 16) {
+            break;
+          }
+
+          message.userId = reader.int32();
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -69,6 +80,7 @@ export const BoidOutput = {
       presentations: globalThis.Array.isArray(object?.presentations)
         ? object.presentations.map((e: any) => globalThis.Number(e))
         : [],
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
     };
   },
 
@@ -76,6 +88,9 @@ export const BoidOutput = {
     const obj: any = {};
     if (message.presentations?.length) {
       obj.presentations = message.presentations.map((e) => Math.round(e));
+    }
+    if (message.userId !== 0) {
+      obj.userId = Math.round(message.userId);
     }
     return obj;
   },
@@ -86,6 +101,7 @@ export const BoidOutput = {
   fromPartial(object: DeepPartial<BoidOutput>): BoidOutput {
     const message = createBaseBoidOutput();
     message.presentations = object.presentations?.map((e) => e) || [];
+    message.userId = object.userId ?? 0;
     return message;
   },
 };
@@ -108,3 +124,7 @@ type DeepPartial<T> = T extends Builtin ? T
   : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
   : T extends {} ? { [K in Exclude<keyof T, "$type">]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}

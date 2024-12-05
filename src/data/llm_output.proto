@@ -11,4 +11,5 @@ option java_package = "nl.uu.model.boid.data";
 
 message LlmOutput {
   repeated Rule rules = 1;
+  int32 user_id = 2;
 }

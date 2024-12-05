@@ -12,10 +12,11 @@ import { messageTypeRegistry } from "../typeRegistry";
 export interface LlmOutput {
   $type: "model.boid.LlmOutput";
   rules: Rule[];
+  userId: number;
 }
 
 function createBaseLlmOutput(): LlmOutput {
-  return { $type: "model.boid.LlmOutput", rules: [] };
+  return { $type: "model.boid.LlmOutput", rules: [], userId: 0 };
 }
 
 export const LlmOutput = {
@@ -24,6 +25,9 @@ export const LlmOutput = {
   encode(message: LlmOutput, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     for (const v of message.rules) {
       Rule.encode(v!, writer.uint32(10).fork()).join();
+    }
+    if (message.userId !== 0) {
+      writer.uint32(16).int32(message.userId);
     }
     return writer;
   },
@@ -42,6 +46,13 @@ export const LlmOutput = {
 
           message.rules.push(Rule.decode(reader, reader.uint32()));
           continue;
+        case 2:
+          if (tag !== 16) {
+            break;
+          }
+
+          message.userId = reader.int32();
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -55,6 +66,7 @@ export const LlmOutput = {
     return {
       $type: LlmOutput.$type,
       rules: globalThis.Array.isArray(object?.rules) ? object.rules.map((e: any) => Rule.fromJSON(e)) : [],
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
     };
   },
 
@@ -62,6 +74,9 @@ export const LlmOutput = {
     const obj: any = {};
     if (message.rules?.length) {
       obj.rules = message.rules.map((e) => Rule.toJSON(e));
+    }
+    if (message.userId !== 0) {
+      obj.userId = Math.round(message.userId);
     }
     return obj;
   },
@@ -72,6 +87,7 @@ export const LlmOutput = {
   fromPartial(object: DeepPartial<LlmOutput>): LlmOutput {
     const message = createBaseLlmOutput();
     message.rules = object.rules?.map((e) => Rule.fromPartial(e)) || [];
+    message.userId = object.userId ?? 0;
     return message;
   },
 };
@@ -94,3 +110,7 @@ type DeepPartial<T> = T extends Builtin ? T
   : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
   : T extends {} ? { [K in Exclude<keyof T, "$type">]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}

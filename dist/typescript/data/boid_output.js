@@ -10,7 +10,7 @@ exports.BoidOutput = void 0;
 const wire_1 = require("@bufbuild/protobuf/wire");
 const typeRegistry_1 = require("../typeRegistry");
 function createBaseBoidOutput() {
-    return { $type: "model.boid.BoidOutput", presentations: [] };
+    return { $type: "model.boid.BoidOutput", presentations: [], userId: 0 };
 }
 exports.BoidOutput = {
     $type: "model.boid.BoidOutput",
@@ -20,6 +20,9 @@ exports.BoidOutput = {
             writer.int32(v);
         }
         writer.join();
+        if (message.userId !== 0) {
+            writer.uint32(16).int32(message.userId);
+        }
         return writer;
     },
     decode(input, length) {
@@ -42,6 +45,12 @@ exports.BoidOutput = {
                         continue;
                     }
                     break;
+                case 2:
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.userId = reader.int32();
+                    continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -56,12 +65,16 @@ exports.BoidOutput = {
             presentations: globalThis.Array.isArray(object?.presentations)
                 ? object.presentations.map((e) => globalThis.Number(e))
                 : [],
+            userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
         };
     },
     toJSON(message) {
         const obj = {};
         if (message.presentations?.length) {
             obj.presentations = message.presentations.map((e) => Math.round(e));
+        }
+        if (message.userId !== 0) {
+            obj.userId = Math.round(message.userId);
         }
         return obj;
     },
@@ -71,7 +84,11 @@ exports.BoidOutput = {
     fromPartial(object) {
         const message = createBaseBoidOutput();
         message.presentations = object.presentations?.map((e) => e) || [];
+        message.userId = object.userId ?? 0;
         return message;
     },
 };
 typeRegistry_1.messageTypeRegistry.set(exports.BoidOutput.$type, exports.BoidOutput);
+function isSet(value) {
+    return value !== null && value !== undefined;
+}
