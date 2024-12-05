@@ -8,6 +8,7 @@ export { Presentation } from "./common/schedule";
 export { Person } from "./common/world";
 export { Person_PhoneType } from "./common/world";
 export { Person_PhoneNumber } from "./common/world";
+export { BoidOutput } from "./data/boid_output";
 export { LlmInput } from "./data/llm_input";
 export { User } from "./data/llm_input";
 export { LlmOutput } from "./data/llm_output";

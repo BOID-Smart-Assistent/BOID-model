@@ -8,6 +8,9 @@
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/Rule.java
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/RuleOrBuilder.java
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/RuleOuterClass.java
+/Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/BoidOutput.java
+/Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/BoidOutputOrBuilder.java
+/Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/BoidOutputOuterClass.java
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/Day.java
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/DayOrBuilder.java
 /Users/fabiodijkshoorn/Projects/BOID/BOID-model/dist/java/src/main/java/nl/uu/model/boid/data/LlmInput.java

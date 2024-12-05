@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package model.boid;
+
+// each message gets its own class
+option java_multiple_files = true;
+// proper package name otherwise uses uu.boid
+option java_package = "nl.uu.model.boid.data";
+
+message BoidOutput {
+  // List of the ids of the presentation
+  repeated int32 presentations = 1;
+}
